@@ -26,7 +26,7 @@ func SSMLResponse(response string) alexa.Response {
 				Type: "SSML",
 				SSML: response,
 			},
-			ShouldEndSession: false,
+			ShouldEndSession: true,
 		},
 	}
 	return r
@@ -40,7 +40,7 @@ func SimpleResponse(response string) alexa.Response {
 				Type: "PlainText",
 				Text: response,
 			},
-			ShouldEndSession: false,
+			ShouldEndSession: true,
 		},
 	}
 }

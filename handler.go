@@ -4,7 +4,6 @@ import (
 	"github.com/arienmalec/alexa-go"
 )
 
-// Handler is the lambda handler
 func Handler(request alexa.Request) (alexa.Response, error) {
 	return handleRequest(request), nil
 }
@@ -27,7 +26,7 @@ func handleLaunchRequest(request alexa.Request) alexa.Response {
 func handleIntentRequest(request alexa.Request) alexa.Response {
 	switch request.Body.Intent.Name {
 	case "WashIntent":
-		return SSMLResponse(GenerateWash())
+		return SSMLResponse(GenerateWash(request))
 	default:
 		return SimpleResponse("Sorry, I can't do what you asked of me.")
 	}
